@@ -54,3 +54,24 @@ bool test_contains_price_above_high()
     // Тест: цена больше максимума диапазона (цена = 21.0)
     return candle.contains(21.0) == false;
 }
+
+bool test_full_size_equal_low_high()
+{
+    // Тест: Цена low и high одинаковы (цена свечи не изменяется).
+    Candle candle(10.0, 10.0, 10.0, 10.0);
+    return candle.full_size() == 0.0;  // Должен вернуть true, если размер свечи равен 0.
+}
+
+bool test_full_size_low_less_than_high()
+{
+    // Тест: Цена low меньше цены high.
+    Candle candle(5.0, 15.0, 5.0, 10.0);
+    return candle.full_size() == 10.0;  // Должен вернуть true, если размер свечи равен 10.
+}
+
+bool test_full_size_high_less_than_low()
+{
+    // Тест: Цена high меньше цены low.
+    Candle candle(15.0, 5.0, 15.0, 10.0);  // high и low должны быть 15.0 и 5.0 соответственно
+    return candle.full_size() == 10.0;  // Должен вернуть true, так как разница = 15.0 - 5.0 = 10.0
+}

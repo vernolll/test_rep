@@ -15,6 +15,9 @@ void initTests()
   tests.push_back(test_contains_price_within_range);
   tests.push_back(test_contains_price_below_low);
   tests.push_back(test_contains_price_above_high);
+  tests.push_back(test_full_size_equal_low_high);
+  tests.push_back(test_full_size_low_less_than_high);
+  tests.push_back(test_full_size_high_less_than_low);
 }
 
 int launchTests()

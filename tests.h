@@ -1,4 +1,5 @@
 #include "candle.h"
+#include <cassert>
 
 bool test_body_contains_green_candle_within_body();
 bool test_body_contains_green_candle_outside_body();
@@ -8,3 +9,6 @@ bool test_contains_price_within_range();
 bool test_contains_price_below_low();
 bool test_contains_price_above_high();
 
+bool test_full_size_equal_low_high();
+bool test_full_size_low_less_than_high();
+bool test_full_size_high_less_than_low();
