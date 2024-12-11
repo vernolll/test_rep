@@ -2,38 +2,16 @@
 #include <functional>
 #include <iostream>
 #include "candle.h"
+#include "tests.h"
 
 //массив всех тестов, который мы заполняем в функции initTests
 static std::vector<std::function<bool()>> tests;
 
-//тест 1
-bool test1()
-{
-  //пример какого-то теста
-  return 42 == (41 + 1); //passed
-}
-
-//тест 2
-bool test2()
-{
-  //пример какого-то теста
-  return 42 != (41 + 1); //failed
-}
-
-//тест 3
-bool test3()
-{
-  Candle candle{ 0.0, 3.0, 3.0, 3.0 };
-
-  //пример какого-то теста
-  return candle.high == 3.0;
-}
-
 void initTests()
 {
-  tests.push_back(test1);
-  tests.push_back(test2);
-  tests.push_back(test3);
+  tests.push_back(test_body_contains_green_candle_within_body);
+  tests.push_back(test_body_contains_green_candle_outside_body);
+  tests.push_back(test_body_contains_red_candle_within_body);
   //tests.push_back(test4);
   //tests.push_back(test5);
 }

@@ -5,4 +5,4 @@ project(testproj CXX)
 include_directories(${PROJECT_SOURCE_DIR})
 
 # ”казываем исходные файлы
-add_executable(${PROJECT_NAME} main.cpp candle.cpp)
+add_executable(${PROJECT_NAME} main.cpp candle.cpp "tests.h" "tests.cpp")
