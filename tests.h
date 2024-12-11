@@ -17,3 +17,7 @@ bool test_body_size_equal_open_close();
 bool test_body_size_green_candle();
 bool test_body_size_red_candle();
 
+bool test_is_red_candle();
+bool test_is_red_no_change();
+bool test_is_red_green_candle();
+

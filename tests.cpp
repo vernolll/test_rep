@@ -96,3 +96,24 @@ bool test_body_size_red_candle()
     Candle candle(15.0, 20.0, 12.0, 10.0);  // Тело свечи равно 5.0 (open - close = 15.0 - 10.0)
     return std::abs(candle.body_size() - 5.0) < 1e-9;  // Должно вернуть true, тело равно 5.0
 }
+
+bool test_is_red_candle()
+{
+    // Тест: Свеча красная, когда open > close
+    Candle candle(15.0, 20.0, 10.0, 5.0);  // open = 15.0, close = 5.0 (красная свеча)
+    return candle.is_red();  // Должен вернуть true, так как свеча красная
+}
+
+bool test_is_red_no_change()
+{
+    // Тест: Свеча без изменения, когда open == close
+    Candle candle(10.0, 20.0, 5.0, 10.0);  // open = close = 10.0 (нет изменения, не красная)
+    return !candle.is_red();  // Должен вернуть true, так как свеча не красная (цена не упала)
+}
+
+bool test_is_red_green_candle()
+{
+    // Тест: Свеча зеленая, когда close > open
+    Candle candle(5.0, 15.0, 4.0, 10.0);  // open = 5.0, close = 10.0 (зеленая свеча)
+    return !candle.is_red();  // Должен вернуть true, так как свеча не красная
+}

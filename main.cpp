@@ -7,10 +7,6 @@
 //массив всех тестов, который мы заполняем в функции initTests
 static std::vector<std::function<bool()>> tests;
 
-bool test_body_size_equal_open_close();
-bool test_body_size_green_candle();
-bool test_body_size_red_candle();
-
 void initTests()
 {
   tests.push_back(test_body_contains_green_candle_within_body);
@@ -25,6 +21,9 @@ void initTests()
   tests.push_back(test_body_size_equal_open_close);
   tests.push_back(test_body_size_green_candle);
   tests.push_back(test_body_size_red_candle);
+  tests.push_back(test_is_red_candle);
+  tests.push_back(test_is_red_no_change);
+  tests.push_back(test_is_red_green_candle);
 }
 
 int launchTests()
