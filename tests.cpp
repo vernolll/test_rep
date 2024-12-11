@@ -75,3 +75,24 @@ bool test_full_size_high_less_than_low()
     Candle candle(15.0, 5.0, 15.0, 10.0);  // high и low должны быть 15.0 и 5.0 соответственно
     return candle.full_size() == 10.0;  // Должен вернуть true, так как разница = 15.0 - 5.0 = 10.0
 }
+
+bool test_body_size_equal_open_close()
+{
+    // Тест: open и close равны, тело свечи равно 0.
+    Candle candle(10.0, 15.0, 8.0, 10.0);  // Тело свечи равно 0
+    return candle.body_size() == 0.0;  // Должно вернуть true, так как тело равно 0
+}
+
+bool test_body_size_green_candle()
+{
+    // Тест: close больше open, свеча зеленая (положительное изменение).
+    Candle candle(5.0, 15.0, 4.0, 10.0);  // Тело свечи равно 10.0 (close - open = 10.0 - 5.0)
+    return std::abs(candle.body_size() - 5.0) < 1e-9;  // Должно вернуть true, тело равно 5.0
+}
+
+bool test_body_size_red_candle()
+{
+    // Тест: open больше close, свеча красная (отрицательное изменение).
+    Candle candle(15.0, 20.0, 12.0, 10.0);  // Тело свечи равно 5.0 (open - close = 15.0 - 10.0)
+    return std::abs(candle.body_size() - 5.0) < 1e-9;  // Должно вернуть true, тело равно 5.0
+}

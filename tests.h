@@ -12,3 +12,8 @@ bool test_contains_price_above_high();
 bool test_full_size_equal_low_high();
 bool test_full_size_low_less_than_high();
 bool test_full_size_high_less_than_low();
+
+bool test_body_size_equal_open_close();
+bool test_body_size_green_candle();
+bool test_body_size_red_candle();
+
