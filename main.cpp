@@ -12,8 +12,9 @@ void initTests()
   tests.push_back(test_body_contains_green_candle_within_body);
   tests.push_back(test_body_contains_green_candle_outside_body);
   tests.push_back(test_body_contains_red_candle_within_body);
-  //tests.push_back(test4);
-  //tests.push_back(test5);
+  tests.push_back(test_contains_price_within_range);
+  tests.push_back(test_contains_price_below_low);
+  tests.push_back(test_contains_price_above_high);
 }
 
 int launchTests()

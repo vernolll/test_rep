@@ -26,3 +26,31 @@ bool test_body_contains_red_candle_within_body()
     // Тест: цена внутри тела свечи (цена = 12.0)
     return candle.body_contains(12.0) == true;
 }
+
+
+bool test_contains_price_within_range()
+{
+    // Свеча: low = 5.0, high = 20.0
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+
+    // Тест: цена внутри диапазона (цена = 12.0)
+    return candle.contains(12.0) == true;
+}
+
+bool test_contains_price_below_low()
+{
+    // Свеча: low = 5.0, high = 20.0
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+
+    // Тест: цена меньше минимума диапазона (цена = 4.0)
+    return candle.contains(4.0) == false;
+}
+
+bool test_contains_price_above_high()
+{
+    // Свеча: low = 5.0, high = 20.0
+    Candle candle(10.0, 20.0, 5.0, 15.0);
+
+    // Тест: цена больше максимума диапазона (цена = 21.0)
+    return candle.contains(21.0) == false;
+}
