@@ -24,6 +24,9 @@ void initTests()
   tests.push_back(test_is_red_candle);
   tests.push_back(test_is_red_no_change);
   tests.push_back(test_is_red_green_candle);
+  tests.push_back(test_is_green_candle);
+  tests.push_back(test_is_green_no_change);
+  tests.push_back(test_is_green_red_candle);
 }
 
 int launchTests()

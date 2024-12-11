@@ -117,3 +117,24 @@ bool test_is_red_green_candle()
     Candle candle(5.0, 15.0, 4.0, 10.0);  // open = 5.0, close = 10.0 (зеленая свеча)
     return !candle.is_red();  // Должен вернуть true, так как свеча не красная
 }
+
+bool test_is_green_candle()
+{
+    // Тест: Свеча зеленая, когда close > open
+    Candle candle(5.0, 20.0, 3.0, 10.0);  // open = 5.0, close = 10.0 (зеленая свеча)
+    return candle.is_green();  // Должен вернуть true, так как свеча зеленая
+}
+
+bool test_is_green_no_change()
+{
+    // Тест: Свеча без изменения, когда open == close
+    Candle candle(10.0, 20.0, 5.0, 10.0);  // open = close = 10.0 (нет изменения, не зеленая)
+    return !candle.is_green();  // Должен вернуть true, так как свеча не зеленая (цена не выросла)
+}
+
+bool test_is_green_red_candle()
+{
+    // Тест: Свеча красная, когда open > close
+    Candle candle(15.0, 20.0, 12.0, 10.0);  // open = 15.0, close = 10.0 (красная свеча)
+    return !candle.is_green();  // Должен вернуть true, так как свеча не зеленая
+}
